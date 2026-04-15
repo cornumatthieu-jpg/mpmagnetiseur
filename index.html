@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pascal Moncomble — Magnétiseur MP 76 | Sommery</title>
+  <meta name="description" content="Pascal Moncomble, magnétiseur à Sommery (76440). Séances de magnétisme pour adultes, enfants, femmes enceintes, séniors et animaux. En cabinet et à domicile.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #1b2a4a;
+      --color-secondary: #3a5a8c;
+      --color-accent: #c8a45a;
+      --color-bg: #faf8f4;
+      --color-bg-alt: #f0ece4;
+      --color-text: #2c2c2c;
+      --color-text-light: #6b6b6b;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Jost', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(27, 42, 74, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 70px;
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.2); }
+    .nav-logo {
+      font-family: var(--font-display);
+      color: var(--color-accent);
+      font-size: 1.4rem; font-weight: 700;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.8); text-decoration: none;
+      font-size: 0.85rem; font-weight: 400; letter-spacing: 1px; text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--color-accent); }
+    .nav-cta {
+      background: var(--color-accent) !important; color: var(--color-primary) !important;
+      padding: 8px 20px; border-radius: 30px; font-weight: 600 !important;
+    }
+    .nav-cta:hover { background: #d4b06a !important; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: white; margin: 5px 0; transition: 0.3s; }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, #0f1a2e 0%, #1b2a4a 40%, #2a4270 100%);
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(200,164,90,0.08) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 30%, rgba(58,90,140,0.15) 0%, transparent 50%);
+    }
+    .hero-particles {
+      position: absolute; inset: 0; overflow: hidden;
+    }
+    .particle {
+      position: absolute; width: 3px; height: 3px; background: rgba(200,164,90,0.3);
+      border-radius: 50%; animation: float-particle linear infinite;
+    }
+    @keyframes float-particle {
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { transform: translateY(-20vh) scale(1.5); opacity: 0; }
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center; padding: 40px 20px;
+      max-width: 800px;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--color-accent);
+      border: 1px solid rgba(200,164,90,0.3);
+      padding: 6px 20px; border-radius: 30px;
+      margin-bottom: 30px;
+      animation: fadeUp 1s ease both 0.2s;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      color: white; font-weight: 700;
+      line-height: 1.1; margin-bottom: 20px;
+      animation: fadeUp 1s ease both 0.4s;
+    }
+    .hero h1 em { color: var(--color-accent); font-style: italic; }
+    .hero-sub {
+      color: rgba(255,255,255,0.65);
+      font-size: 1.1rem; font-weight: 300;
+      max-width: 560px; margin: 0 auto 40px;
+      animation: fadeUp 1s ease both 0.6s;
+    }
+    .hero-buttons {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+      animation: fadeUp 1s ease both 0.8s;
+    }
+    .btn-primary {
+      background: var(--color-accent); color: var(--color-primary);
+      padding: 14px 36px; border-radius: 50px; text-decoration: none;
+      font-weight: 600; font-size: 0.95rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: none; cursor: pointer;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(200,164,90,0.3); }
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.3); color: white;
+      padding: 14px 36px; border-radius: 50px; text-decoration: none;
+      font-weight: 400; font-size: 0.95rem;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.5); }
+    .hero-scroll {
+      position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+      animation: bounce 2s ease infinite;
+    }
+    .hero-scroll span { display: block; width: 24px; height: 38px; border: 2px solid rgba(255,255,255,0.3); border-radius: 12px; position: relative; }
+    .hero-scroll span::after { content:''; width: 4px; height: 8px; background: var(--color-accent); border-radius: 2px; position: absolute; top: 6px; left: 50%; transform: translateX(-50%); animation: scroll-dot 2s ease infinite; }
+    @keyframes scroll-dot { 0%,20% { opacity: 1; transform: translateX(-50%) translateY(0); } 100% { opacity: 0; transform: translateX(-50%) translateY(16px); } }
+    @keyframes bounce { 0%,20%,50%,80%,100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-8px); } 60% { transform: translateX(-50%) translateY(-4px); } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 100px 20px; }
+    .section-header {
+      text-align: center; max-width: 640px; margin: 0 auto 60px;
+    }
+    .section-header .overline {
+      font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--color-accent); font-weight: 600; margin-bottom: 12px;
+    }
+    .section-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--color-primary); font-weight: 700;
+      line-height: 1.2; margin-bottom: 16px;
+    }
+    .section-header p { color: var(--color-text-light); font-weight: 300; }
+
+    /* ===== À PROPOS ===== */
+    #apropos { background: var(--color-bg); }
+    .about-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .about-visual {
+      position: relative; height: 500px; border-radius: 20px; overflow: hidden;
+    }
+    .about-visual-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      border-radius: 20px;
+    }
+    .about-visual-icon {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 8rem; opacity: 0.15;
+    }
+    .about-visual-card {
+      position: absolute; bottom: 30px; left: 30px; right: 30px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(16px);
+      border-radius: 16px; padding: 24px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .about-visual-card .stat { color: var(--color-accent); font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; }
+    .about-visual-card .stat-label { color: rgba(255,255,255,0.8); font-size: 0.85rem; }
+    .about-text h3 {
+      font-family: var(--font-display);
+      font-size: 2rem; color: var(--color-primary);
+      margin-bottom: 20px; font-weight: 700;
+    }
+    .about-text p { color: var(--color-text-light); margin-bottom: 16px; font-weight: 300; }
+    .about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .about-tag {
+      padding: 6px 16px; border-radius: 30px;
+      font-size: 0.8rem; font-weight: 500;
+      background: rgba(27,42,74,0.06);
+      color: var(--color-primary);
+    }
+
+    /* ===== SERVICES ===== */
+    #services { background: var(--color-bg-alt); }
+    .services-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;
+    }
+    .service-card {
+      background: white; border-radius: 20px; padding: 40px 30px;
+      transition: transform 0.4s, box-shadow 0.4s;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--color-accent), var(--color-secondary));
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
+    .service-card:hover::before { opacity: 1; }
+    .service-icon {
+      width: 60px; height: 60px; border-radius: 16px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 20px;
+    }
+    .service-card h3 { font-family: var(--font-display); font-size: 1.4rem; color: var(--color-primary); margin-bottom: 12px; }
+    .service-card p { color: var(--color-text-light); font-size: 0.9rem; font-weight: 300; }
+    .service-price {
+      margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;
+      font-family: var(--font-display); font-size: 1.8rem; font-weight: 700;
+      color: var(--color-accent);
+    }
+    .service-price small { font-family: var(--font-body); font-size: 0.8rem; color: var(--color-text-light); font-weight: 400; }
+
+    /* ===== PUBLIC ===== */
+    #public { background: var(--color-bg); }
+    .public-grid {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px;
+    }
+    .public-item {
+      text-align: center; padding: 30px 16px;
+      background: white; border-radius: 16px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .public-item:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+    .public-icon { font-size: 2.2rem; margin-bottom: 10px; }
+    .public-label { font-size: 0.85rem; font-weight: 500; color: var(--color-primary); }
+
+    /* ===== AVIS ===== */
+    #avis { background: var(--color-bg-alt); }
+    .testimonial-card {
+      max-width: 700px; margin: 0 auto;
+      background: white; border-radius: 20px; padding: 48px;
+      position: relative;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+    }
+    .testimonial-card::before {
+      content: '❝'; position: absolute; top: 20px; left: 32px;
+      font-size: 4rem; color: var(--color-accent); opacity: 0.2;
+      font-family: var(--font-display); line-height: 1;
+    }
+    .testimonial-card p {
+      font-style: italic; color: var(--color-text-light); font-size: 1.05rem;
+      line-height: 1.8; margin-bottom: 20px;
+    }
+    .testimonial-source { font-size: 0.85rem; color: var(--color-accent); font-weight: 600; }
+
+    /* ===== CALENDRIER ===== */
+    #calendrier { background: var(--color-bg); }
+    .legend-dot { font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+    .legend-dot.available { color: #22c55e; }
+    .legend-dot.busy { color: #ef4444; }
+    .legend-dot.appointment { color: #f59e0b; }
+    #cal-container {
+      max-width: 600px; margin: 0 auto;
+      background: white; border-radius: 20px; padding: 32px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+    }
+    #cal-prev, #cal-next {
+      background: none; border: 1px solid #e5e7eb; border-radius: 10px;
+      width: 40px; height: 40px; cursor: pointer; font-size: 18px; color: #444;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    #cal-prev:hover, #cal-next:hover { background: var(--color-bg-alt); border-color: var(--color-accent); }
+
+    /* ===== CONTACT ===== */
+    #contact { background: var(--color-primary); color: white; }
+    #contact .section-header h2 { color: white; }
+    #contact .section-header p { color: rgba(255,255,255,0.6); }
+    #contact .section-header .overline { color: var(--color-accent); }
+    .contact-grid {
+      max-width: 1000px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    }
+    .contact-info-item {
+      display: flex; gap: 16px; margin-bottom: 28px; align-items: flex-start;
+    }
+    .contact-info-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: rgba(200,164,90,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .contact-info-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+    .contact-info-value { font-weight: 500; color: white; font-size: 1rem; }
+    .contact-info-value a { color: var(--color-accent); text-decoration: none; }
+    .contact-info-value a:hover { text-decoration: underline; }
+    .contact-form input, .contact-form textarea, .contact-form select {
+      width: 100%; padding: 14px 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px; color: white;
+      font-family: var(--font-body); font-size: 0.95rem;
+      margin-bottom: 14px; transition: border-color 0.3s;
+    }
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.35); }
+    .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+      outline: none; border-color: var(--color-accent);
+    }
+    .contact-form select { cursor: pointer; }
+    .contact-form select option { background: var(--color-primary); color: white; }
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0f1a2e; color: rgba(255,255,255,0.5);
+      padding: 40px 20px; text-align: center; font-size: 0.85rem;
+    }
+    footer a { color: var(--color-accent); text-decoration: none; }
+    footer .social-links { display: flex; justify-content: center; gap: 16px; margin-bottom: 20px; }
+    footer .social-link {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.6); text-decoration: none; font-size: 1.1rem;
+      transition: background 0.3s, color 0.3s;
+    }
+    footer .social-link:hover { background: var(--color-accent); color: var(--color-primary); }
+
+    /* ===== EDITOR ===== */
+    .etab {
+      flex: 1; padding: 10px 4px; border: none; background: none;
+      cursor: pointer; font-size: 12px; font-weight: 600; color: #666;
+      border-bottom: 2px solid transparent; transition: all 0.2s;
+    }
+    .etab.active { color: #1a1a2e; border-bottom-color: var(--color-accent); }
+    .etab:hover { background: #f9f9f9; }
+
+    /* ===== MOBILE ===== */
+    .mobile-menu {
+      display: none; position: fixed; top: 70px; left: 0; right: 0;
+      background: rgba(27, 42, 74, 0.98); backdrop-filter: blur(12px);
+      padding: 20px; z-index: 99; flex-direction: column; gap: 16px;
+    }
+    .mobile-menu a {
+      color: rgba(255,255,255,0.8); text-decoration: none;
+      font-size: 0.95rem; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .mobile-menu.open { display: flex; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-visual { height: 300px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .public-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; }
+      .testimonial-card { padding: 32px 24px; }
+      section { padding: 70px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo" data-editable="Logo">✦ Magnétiseur MP 76</a>
+    <div class="nav-links">
+      <a href="#apropos">À propos</a>
+      <a href="#services">Prestations</a>
+      <a href="#calendrier">Disponibilités</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </div>
+    <button class="hamburger" onclick="toggleMobile()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#apropos" onclick="closeMobile()">À propos</a>
+    <a href="#services" onclick="closeMobile()">Prestations</a>
+    <a href="#public" onclick="closeMobile()">Pour qui ?</a>
+    <a href="#calendrier" onclick="closeMobile()">Disponibilités</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" data-editable-img="Image Hero">
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="hero-badge" data-editable="Badge hero">Magnétiseur — Sommery (76)</div>
+      <h1 data-editable="Titre hero">Pascal Moncomble<br><em>Magnétiseur</em></h1>
+      <p class="hero-sub" data-editable="Sous-titre hero" data-editable-type="textarea">
+        Soulager vos douleurs, rétablir l'harmonie de votre corps et de votre esprit grâce à l'énergie du magnétisme. En cabinet ou à domicile.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">Prendre rendez-vous</a>
+        <a href="#apropos" class="btn-secondary">En savoir plus</a>
+      </div>
+    </div>
+    <div class="hero-scroll"><span></span></div>
+  </section>
+
+  <!-- À PROPOS -->
+  <section id="apropos">
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-visual-bg" data-editable-img="Photo À propos"></div>
+        <div class="about-visual-icon">🤲</div>
+        <div class="about-visual-card">
+          <div class="stat" data-editable="Années d'expérience">+5 ans</div>
+          <div class="stat-label" data-editable="Label expérience">de pratique du magnétisme</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-header" style="text-align:left;margin:0 0 24px;">
+          <div class="overline" data-editable="Overline à propos">Qui suis-je</div>
+          <h2 data-editable="Titre à propos">Un don naturel au service de votre bien-être</h2>
+        </div>
+        <p data-editable="Paragraphe à propos 1" data-editable-type="textarea">
+          Je suis Pascal Moncomble, magnétiseur installé à Sommery dans la campagne normande depuis 2021. Doté d'un don naturel pour le magnétisme, j'accompagne chaque personne avec bienveillance et écoute pour soulager les douleurs, apaiser les tensions et favoriser un retour à l'équilibre énergétique.
+        </p>
+        <p data-editable="Paragraphe à propos 2" data-editable-type="textarea">
+          Ma pratique s'adresse à tous : adultes, adolescents, enfants, nourrissons, femmes enceintes, seniors et même vos animaux de compagnie. Chaque séance est unique, adaptée à vos besoins spécifiques.
+        </p>
+        <div class="about-tags">
+          <span class="about-tag">En cabinet</span>
+          <span class="about-tag">À domicile</span>
+          <span class="about-tag">Écoute bienveillante</span>
+          <span class="about-tag">Séance personnalisée</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-header">
+      <div class="overline" data-editable="Overline services">Prestations</div>
+      <h2 data-editable="Titre services">Ce que le magnétisme peut vous apporter</h2>
+      <p data-editable="Sous-titre services" data-editable-type="textarea">
+        Le magnétisme agit en complément de la médecine traditionnelle pour soulager de nombreux maux du quotidien.
+      </p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🔥</div>
+        <h3 data-editable="Service 1 titre">Douleurs & inflammations</h3>
+        <p data-editable="Service 1 desc" data-editable-type="textarea">Soulagement des douleurs musculaires, articulaires, maux de dos, tendinites et inflammations chroniques par l'imposition des mains.</p>
+        <div class="service-price" data-editable="Service 1 prix">40 € <small>/ séance</small></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌿</div>
+        <h3 data-editable="Service 2 titre">Stress & troubles émotionnels</h3>
+        <p data-editable="Service 2 desc" data-editable-type="textarea">Apaisement du stress, de l'anxiété, des troubles du sommeil et des états de fatigue. Retrouvez un équilibre intérieur durable.</p>
+        <div class="service-price" data-editable="Service 2 prix">40 € <small>/ séance</small></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✨</div>
+        <h3 data-editable="Service 3 titre">Problèmes de peau & brûlures</h3>
+        <p data-editable="Service 3 desc" data-editable-type="textarea">Aide à la cicatrisation, eczéma, psoriasis, zona et brûlures. Le magnétisme est reconnu pour son action apaisante sur les affections cutanées.</p>
+        <div class="service-price" data-editable="Service 3 prix">40 € <small>/ séance</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLIC -->
+  <section id="public">
+    <div class="section-header">
+      <div class="overline" data-editable="Overline public">Pour qui ?</div>
+      <h2 data-editable="Titre public">Le magnétisme s'adresse à tous</h2>
+      <p data-editable="Sous-titre public">Chaque personne, quel que soit son âge, peut bénéficier des bienfaits du magnétisme.</p>
+    </div>
+    <div class="public-grid">
+      <div class="public-item">
+        <div class="public-icon">👨‍💼</div>
+        <div class="public-label" data-editable="Public 1">Adultes</div>
+      </div>
+      <div class="public-item">
+        <div class="public-icon">🧑‍🎓</div>
+        <div class="public-label" data-editable="Public 2">Adolescents</div>
+      </div>
+      <div class="public-item">
+        <div class="public-icon">👶</div>
+        <div class="public-label" data-editable="Public 3">Enfants & Nourrissons</div>
+      </div>
+      <div class="public-item">
+        <div class="public-icon">🤰</div>
+        <div class="public-label" data-editable="Public 4">Femmes enceintes</div>
+      </div>
+      <div class="public-item">
+        <div class="public-icon">👴</div>
+        <div class="public-label" data-editable="Public 5">Séniors</div>
+      </div>
+      <div class="public-item">
+        <div class="public-icon">🐾</div>
+        <div class="public-label" data-editable="Public 6">Animaux</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVIS -->
+  <section id="avis">
+    <div class="section-header">
+      <div class="overline" data-editable="Overline avis">Témoignage</div>
+      <h2 data-editable="Titre avis">Ils témoignent</h2>
+    </div>
+    <div class="testimonial-card">
+      <p data-editable="Témoignage 1" data-editable-type="textarea">
+        « Je consulte Pascal depuis 2022 pour mes douleurs. À chaque fois, elles disparaissent dans les heures ou jours qui suivent. Je le recommande vivement, toutes les personnes autour de moi qui l'ont consulté ont été satisfaites. »
+      </p>
+      <div class="testimonial-source" data-editable="Source témoignage">— Patiente, avis Pages Jaunes</div>
+    </div>
+  </section>
+
+  <!-- CALENDRIER -->
+  <section id="calendrier">
+    <div class="section-header">
+      <div class="overline" data-editable="Overline calendrier">Disponibilités</div>
+      <h2 data-editable="Titre calendrier">Mes créneaux disponibles</h2>
+      <p data-editable="Sous-titre calendrier">Consultez mes disponibilités et contactez-moi pour réserver votre séance.</p>
+    </div>
+    <div style="display: flex; gap: 20px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap;">
+      <span class="legend-dot available">● Disponible</span>
+      <span class="legend-dot busy">● Indisponible</span>
+      <span class="legend-dot appointment">● Sur RDV</span>
+    </div>
+    <div id="cal-container">
+      <div id="cal-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+        <button id="cal-prev" onclick="calPrev()">‹</button>
+        <span id="cal-month-label" style="font-weight: 700; font-size: 1.1rem; font-family: var(--font-display);"></span>
+        <button id="cal-next" onclick="calNext()">›</button>
+      </div>
+      <div id="cal-days-header" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-bottom: 8px;"></div>
+      <div id="cal-grid" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px;"></div>
+    </div>
+    <div id="cal-editor-hint" style="margin-top: 16px; font-size: 12px; color: #999; display: none; text-align: center;">
+      Mode éditeur actif — Cliquez sur un jour pour changer son statut
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header">
+      <div class="overline" data-editable="Overline contact">Contact</div>
+      <h2 data-editable="Titre contact">Prenez rendez-vous</h2>
+      <p data-editable="Sous-titre contact">N'hésitez pas à me contacter pour toute question ou pour réserver votre séance.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <div class="contact-info-icon">📍</div>
+          <div>
+            <div class="contact-info-label">Adresse</div>
+            <div class="contact-info-value" data-editable="Adresse">1361 route de la Cavée, 76440 Sommery</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">📞</div>
+          <div>
+            <div class="contact-info-label">Téléphone</div>
+            <div class="contact-info-value"><a href="tel:0607976827" data-editable="Téléphone">06 07 97 68 27</a></div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">📧</div>
+          <div>
+            <div class="contact-info-label">Email</div>
+            <div class="contact-info-value"><a href="mailto:magnetiseur.mp76@gmail.com" data-editable="Email">magnetiseur.mp76@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">🏠</div>
+          <div>
+            <div class="contact-info-label">Consultations</div>
+            <div class="contact-info-value" data-editable="Lieu consultation">En cabinet & à domicile</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">💶</div>
+          <div>
+            <div class="contact-info-label">Tarif</div>
+            <div class="contact-info-value" data-editable="Tarif contact">40 € la séance</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="contact-form" id="contactForm">
+          <input type="text" id="cf-name" placeholder="Votre nom" required>
+          <input type="email" id="cf-email" placeholder="Votre email" required>
+          <input type="tel" id="cf-phone" placeholder="Votre téléphone (optionnel)">
+          <select id="cf-subject">
+            <option value="">— Objet de votre demande —</option>
+            <option value="Prise de rendez-vous">Prise de rendez-vous</option>
+            <option value="Douleurs & inflammations">Douleurs & inflammations</option>
+            <option value="Stress & troubles">Stress & troubles émotionnels</option>
+            <option value="Problèmes de peau">Problèmes de peau</option>
+            <option value="Renseignements">Renseignements</option>
+            <option value="Autre">Autre</option>
+          </select>
+          <textarea id="cf-message" placeholder="Votre message..." rows="4"></textarea>
+          <button type="button" class="btn-primary" style="width: 100%; text-align: center;" onclick="sendContact()">
+            Envoyer le message
+          </button>
+          <div id="cf-confirm" style="display:none; margin-top:14px; padding:14px; background:rgba(34,197,94,0.15); border-radius:12px; color:#22c55e; font-weight:600; font-size:0.9rem; text-align:center;">
+            ✓ Message prêt à être envoyé ! Votre client mail va s'ouvrir.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="social-links">
+      <a href="https://www.facebook.com/magnetiseur.mp" target="_blank" rel="noopener" class="social-link" title="Facebook">f</a>
+    </div>
+    <p data-editable="Footer texte">
+      Pascal Moncomble — Magnétiseur MP 76 — SIRET 894 437 615 00012<br>
+      1361 route de la Cavée, 76440 Sommery
+    </p>
+    <p style="margin-top: 12px; font-size: 0.75rem; opacity: 0.6;">
+      Le magnétisme ne se substitue pas à un avis ou traitement médical. Consultez toujours votre médecin.
+    </p>
+  </footer>
+
+  <!-- EDITOR -->
+  <button id="editor-toggle" style="
+    position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+    background: var(--color-primary); color: white; border: none; border-radius: 50px;
+    padding: 12px 20px; cursor: pointer; font-size: 14px; font-weight: 600;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3); transition: transform 0.2s;
+    font-family: var(--font-body);
+  " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+    🛠️ Modifier
+  </button>
+
+  <div id="editor-panel" style="
+    position: fixed; right: -400px; top: 0; width: 380px; height: 100vh;
+    background: #fff; box-shadow: -4px 0 30px rgba(0,0,0,0.15);
+    z-index: 9998; transition: right 0.3s ease; overflow-y: auto;
+    font-family: system-ui; padding: 0;
+  ">
+    <div style="background: var(--color-primary); color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; font-size: 16px;">✏️ Éditeur de site</span>
+      <button onclick="closeEditor()" style="background:none;border:none;color:white;font-size:22px;cursor:pointer;">×</button>
+    </div>
+    <div id="editor-tabs" style="display:flex; border-bottom: 1px solid #eee;">
+      <button class="etab active" onclick="showTab('texts')" data-tab="texts">✏️ Textes</button>
+      <button class="etab" onclick="showTab('images')" data-tab="images">🖼️ Images</button>
+      <button class="etab" onclick="showTab('colors')" data-tab="colors">🎨 Couleurs</button>
+      <button class="etab" onclick="showTab('calendar')" data-tab="calendar">📅 Calendrier</button>
+    </div>
+    <div id="tab-texts" class="tab-content" style="padding: 16px;"></div>
+    <div id="tab-images" class="tab-content" style="padding: 16px; display:none;"></div>
+    <div id="tab-colors" class="tab-content" style="padding: 16px; display:none;"></div>
+    <div id="tab-calendar" class="tab-content" style="padding: 16px; display:none;">
+      <p style="font-size:13px;color:#444;margin-bottom:16px;">
+        Cliquez sur les jours du calendrier pour définir vos disponibilités :
+      </p>
+      <button onclick="enableCalEditor()" style="
+        width: 100%; padding: 10px; background: var(--color-primary); color: white;
+        border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-family: var(--font-body);
+      ">📅 Activer l'édition du calendrier</button>
+      <div style="margin-top: 16px; font-size: 12px; color: #666;">
+        <div style="margin-bottom: 6px;"><span style="color:#22c55e;">●</span> 1 clic = Disponible</div>
+        <div style="margin-bottom: 6px;"><span style="color:#ef4444;">●</span> 2 clics = Indisponible</div>
+        <div style="margin-bottom: 6px;"><span style="color:#f59e0b;">●</span> 3 clics = Sur RDV</div>
+        <div><span style="color:#999;">●</span> 4 clics = Effacer</div>
+      </div>
+    </div>
+    <div style="padding: 16px; border-top: 1px solid #eee; position: sticky; bottom: 0; background: white;">
+      <button onclick="downloadSite()" style="
+        width: 100%; padding: 12px; background: #22c55e; color: white;
+        border: none; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 14px;
+        font-family: var(--font-body);
+      ">💾 Télécharger mon site</button>
+    </div>
+  </div>
+
+  <script>
+    // ===== PARTICLES =====
+    (function() {
+      const container = document.getElementById('particles');
+      for (let i = 0; i < 30; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.animationDuration = (6 + Math.random() * 10) + 's';
+        p.style.animationDelay = Math.random() * 8 + 's';
+        p.style.width = (2 + Math.random() * 3) + 'px';
+        p.style.height = p.style.width;
+        container.appendChild(p);
+      }
+    })();
+
+    // ===== NAV =====
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+    });
+    function toggleMobile() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+    function closeMobile() {
+      document.getElementById('mobileMenu').classList.remove('open');
+    }
+
+    // ===== CALENDRIER =====
+    const CAL_STATES = { 0: 'none', 1: 'available', 2: 'busy', 3: 'appointment' };
+    const CAL_COLORS = { none: '#f3f4f6', available: '#22c55e', busy: '#ef4444', appointment: '#f59e0b' };
+    const CAL_LABELS = { none: '', available: 'Dispo', busy: 'Indispo', appointment: 'RDV' };
+    let calYear = new Date().getFullYear();
+    let calMonth = new Date().getMonth();
+    let calData = JSON.parse(localStorage.getItem('calData') || '{}');
+    let calEditorMode = false;
+    const DAYS_FR = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
+    const MONTHS_FR = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+
+    function calRender() {
+      document.getElementById('cal-month-label').textContent = MONTHS_FR[calMonth] + ' ' + calYear;
+      const daysHeader = document.getElementById('cal-days-header');
+      daysHeader.innerHTML = DAYS_FR.map(d => '<div style="text-align:center;font-size:11px;font-weight:700;color:#999;padding:4px;">'+d+'</div>').join('');
+      const grid = document.getElementById('cal-grid');
+      grid.innerHTML = '';
+      const firstDay = new Date(calYear, calMonth, 1);
+      const lastDay = new Date(calYear, calMonth + 1, 0);
+      let startOffset = firstDay.getDay() - 1;
+      if (startOffset < 0) startOffset = 6;
+      for (let i = 0; i < startOffset; i++) grid.innerHTML += '<div></div>';
+      for (let d = 1; d <= lastDay.getDate(); d++) {
+        const key = calYear + '-' + calMonth + '-' + d;
+        const state = calData[key] || 'none';
+        const today = new Date();
+        const isToday = d === today.getDate() && calMonth === today.getMonth() && calYear === today.getFullYear();
+        const isPast = new Date(calYear, calMonth, d) < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+        grid.innerHTML += '<div onclick="calToggle('+d+')" style="text-align:center;padding:8px 4px;border-radius:10px;cursor:'+(calEditorMode?'pointer':'default')+';background:'+CAL_COLORS[state]+';color:'+(state==='none'?'#999':'white')+';font-size:13px;font-weight:'+(isToday?'800':'500')+';opacity:'+(isPast?'0.4':'1')+';border:'+(isToday?'2px solid var(--color-accent)':'2px solid transparent')+';transition:transform 0.15s;min-height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;" onmouseover="if(!'+isPast+')this.style.transform=\'scale(1.08)\'" onmouseout="this.style.transform=\'scale(1)\'"><span>'+d+'</span>'+(state!=='none'?'<span style="font-size:9px;opacity:0.9;">'+CAL_LABELS[state]+'</span>':'')+'</div>';
+      }
+    }
+    function calToggle(day) {
+      if (!calEditorMode) return;
+      const key = calYear+'-'+calMonth+'-'+day;
+      const states = ['none','available','busy','appointment'];
+      const current = calData[key] || 'none';
+      calData[key] = states[(states.indexOf(current)+1) % states.length];
+      localStorage.setItem('calData', JSON.stringify(calData));
+      calRender();
+    }
+    function calPrev() { calMonth--; if(calMonth<0){calMonth=11;calYear--;} calRender(); }
+    function calNext() { calMonth++; if(calMonth>11){calMonth=0;calYear++;} calRender(); }
+    function enableCalEditor() {
+      calEditorMode = true;
+      document.getElementById('cal-editor-hint').style.display = 'block';
+      calRender();
+    }
+
+    // ===== CONTACT =====
+    function sendContact() {
+      const name = document.getElementById('cf-name').value;
+      const email = document.getElementById('cf-email').value;
+      const phone = document.getElementById('cf-phone').value;
+      const subject = document.getElementById('cf-subject').value || 'Contact site web';
+      const message = document.getElementById('cf-message').value;
+      if (!name || !email || !message) { alert('Veuillez remplir les champs obligatoires (nom, email, message).'); return; }
+      const body = 'Nom : ' + name + '\nEmail : ' + email + '\nTéléphone : ' + (phone||'Non renseigné') + '\n\n' + message;
+      window.location.href = 'mailto:magnetiseur.mp76@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      document.getElementById('cf-confirm').style.display = 'block';
+    }
+
+    // ===== EDITOR =====
+    document.getElementById('editor-toggle').addEventListener('click', () => {
+      const panel = document.getElementById('editor-panel');
+      const isOpen = panel.style.right === '0px';
+      panel.style.right = isOpen ? '-400px' : '0px';
+      if (!isOpen) initEditor();
+    });
+    function closeEditor() { document.getElementById('editor-panel').style.right = '-400px'; }
+    function showTab(name) {
+      document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
+      document.querySelectorAll('.etab').forEach(t => t.classList.remove('active'));
+      document.getElementById('tab-' + name).style.display = 'block';
+      document.querySelector('[data-tab="'+name+'"]').classList.add('active');
+    }
+    function initEditor() {
+      const textsContainer = document.getElementById('tab-texts');
+      textsContainer.innerHTML = '';
+      document.querySelectorAll('[data-editable]').forEach(el => {
+        const label = el.dataset.editable;
+        const isLong = el.tagName === 'P' || el.dataset.editableType === 'textarea';
+        const field = isLong
+          ? '<textarea rows="3" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;resize:vertical;font-family:system-ui;">'+el.innerText+'</textarea>'
+          : '<input type="text" value="'+el.innerText.replace(/"/g,'&quot;')+'" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:system-ui;">';
+        textsContainer.innerHTML += '<div style="margin-bottom:16px;"><label style="font-size:11px;font-weight:600;color:#888;display:block;margin-bottom:4px;">'+label+'</label>'+field+'</div>';
+      });
+      textsContainer.querySelectorAll('input, textarea').forEach((input, i) => {
+        const editables = document.querySelectorAll('[data-editable]');
+        input.addEventListener('input', () => { editables[i].innerText = input.value; });
+      });
+      const imgsContainer = document.getElementById('tab-images');
+      imgsContainer.innerHTML = '';
+      document.querySelectorAll('[data-editable-img]').forEach(el => {
+        const label = el.dataset.editableImg;
+        const currentSrc = el.tagName === 'IMG' ? el.src : '';
+        imgsContainer.innerHTML += '<div style="margin-bottom:20px;"><label style="font-size:11px;font-weight:600;color:#888;display:block;margin-bottom:6px;">'+label+'</label><input type="url" placeholder="Coller l\'URL de l\'image..." value="'+currentSrc+'" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;margin-bottom:6px;"><div style="font-size:11px;color:#999;">— ou —</div><input type="file" accept="image/*" style="font-size:12px;margin-top:6px;"></div>';
+      });
+      const imgDivs = imgsContainer.querySelectorAll('div');
+      const editableImgs = document.querySelectorAll('[data-editable-img]');
+      imgDivs.forEach((div, i) => {
+        if (i >= editableImgs.length) return;
+        const urlInput = div.querySelector('input[type="url"]');
+        const fileInput = div.querySelector('input[type="file"]');
+        if (urlInput) urlInput.addEventListener('change', () => {
+          if (editableImgs[i].tagName === 'IMG') editableImgs[i].src = urlInput.value;
+          else editableImgs[i].style.backgroundImage = 'url('+urlInput.value+')';
+        });
+        if (fileInput) fileInput.addEventListener('change', (e) => {
+          const reader = new FileReader();
+          reader.onload = (ev) => {
+            if (editableImgs[i].tagName === 'IMG') editableImgs[i].src = ev.target.result;
+            else { editableImgs[i].style.backgroundImage = 'url('+ev.target.result+')'; editableImgs[i].style.backgroundSize = 'cover'; editableImgs[i].style.backgroundPosition = 'center'; }
+            if (urlInput) urlInput.value = '(fichier local)';
+          };
+          reader.readAsDataURL(e.target.files[0]);
+        });
+      });
+      const colorsContainer = document.getElementById('tab-colors');
+      const root = document.documentElement;
+      const cssVars = [
+        { key: '--color-primary', label: 'Couleur principale' },
+        { key: '--color-secondary', label: 'Couleur secondaire' },
+        { key: '--color-accent', label: 'Couleur d\'accent' },
+        { key: '--color-bg', label: 'Fond de page' },
+        { key: '--color-text', label: 'Couleur du texte' },
+      ];
+      colorsContainer.innerHTML = cssVars.map(v => {
+        let val = getComputedStyle(root).getPropertyValue(v.key).trim();
+        if (!val || val.length < 4) val = '#000000';
+        return '<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;"><input type="color" value="'+val+'" style="width:44px;height:36px;border:none;cursor:pointer;border-radius:6px;" data-var="'+v.key+'"><label style="font-size:13px;color:#444;">'+v.label+'</label></div>';
+      }).join('');
+      colorsContainer.querySelectorAll('input[type="color"]').forEach(input => {
+        input.addEventListener('input', () => { root.style.setProperty(input.dataset.var, input.value); });
+      });
+    }
+    function downloadSite() {
+      const panel = document.getElementById('editor-panel');
+      const btn = document.getElementById('editor-toggle');
+      panel.style.right = '-400px';
+      btn.style.display = 'none';
+      setTimeout(() => {
+        const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+        const blob = new Blob([html], { type: 'text/html' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'magnetiseur-mp76.html';
+        a.click();
+        btn.style.display = '';
+      }, 300);
+    }
+
+    // ===== INIT =====
+    document.addEventListener('DOMContentLoaded', () => { calRender(); });
+
+    // ===== SCROLL REVEAL =====
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; } });
+    }, { threshold: 0.1 });
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.service-card, .public-item, .testimonial-card, .about-text, .about-visual, .contact-info, .contact-form').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
